@@ -17,4 +17,4 @@ class Solution:
                 y, x = stack.pop(), stack.pop()
                 stack.append(ops[token](x, y))
                 
-        return stack
+        return stack[0]
