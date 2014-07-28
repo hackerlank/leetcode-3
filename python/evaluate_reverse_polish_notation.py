@@ -7,14 +7,18 @@ class Solution:
             '+': operator.add,
             '-': operator.sub,
             '*': operator.mul,
-            '/': operator.div 
-        }
+            '/': operator.div}
         stack = []
         for token in tokens:
-            if token not in ops:
+            if token.isdigit():
                 stack.append(int(token))
             else:
                 y, x = stack.pop(), stack.pop()
-                stack.append(ops[token](x, y))
-                
-        return stack[0]
+                stack.append(int(ops[token](x*1.0, y)))
+
+        return stack.pop()
+
+if __name__ == '__main__':
+    s = Solution()
+    print s.evalRPN(["2", "1", "+", "3", "*"])
+    print s.evalRPN(["4", "13", "5", "/", "+"])
