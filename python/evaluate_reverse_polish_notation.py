@@ -10,7 +10,7 @@ class Solution:
             '/': operator.div}
         stack = []
         for token in tokens:
-            if token.isdigit():
+            if token.isdigit() or token[1:].isdigit():
                 stack.append(int(token))
             else:
                 y, x = stack.pop(), stack.pop()
